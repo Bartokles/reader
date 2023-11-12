@@ -1,20 +1,4 @@
-// var log = chrome.extension.getBackgroundPage().log;
-
 var languages = ['en', 'pl']
-var languageJSON;
-
-
-function loadLangJSON(callback) {
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', `../dictionaries/${localStorage["lang"]}.json`, true);
-    xobj.onreadystatechange = function() {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-            callback(xobj.responseText);
-        }
-    }
-    xobj.send(null);
-}
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -36,16 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage["lang"] != null) {
         document.lang = localStorage["lang"];
 
-        loadLangJSON(function(response) {
-            languageJSON = JSON.parse(response);
-
+        if(chrome.extension.getBackgroundPage().languageJSON != null) {
             let volumeDiv = document.getElementById("volumeDiv");
             let pitchDiv = document.getElementById("pitchDiv");
             let rateDiv = document.getElementById("rateDiv");
 
-            volumeDiv.innerHTML = volumeDiv.innerHTML.replace("Volume", languageJSON.Volume);
-            pitchDiv.innerHTML = pitchDiv.innerHTML.replace("Pitch", languageJSON.Pitch);
-            rateDiv.innerHTML = rateDiv.innerHTML.replace("Rate", languageJSON.Rate);
+            volumeDiv.innerHTML = volumeDiv.innerHTML.replace("Volume", chrome.extension.getBackgroundPage().languageJSON.Volume);
+            pitchDiv.innerHTML = pitchDiv.innerHTML.replace("Pitch", chrome.extension.getBackgroundPage().languageJSON.Pitch);
+            rateDiv.innerHTML = rateDiv.innerHTML.replace("Rate", chrome.extension.getBackgroundPage().languageJSON.Rate);
 
             let volumeSlider = document.getElementById("volume");
             let pitchSlider = document.getElementById("pitch");
@@ -64,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
             let saveButton = document.getElementById('saveBtn');
             let resetButton = document.getElementById('resetBtn');
 
-            saveButton.textContent = saveButton.textContent.replace("Save", languageJSON.Save);
-            resetButton.textContent = resetButton.textContent.replace("Reset", languageJSON.Reset);
-        });
+            saveButton.textContent = saveButton.textContent.replace("Save", chrome.extension.getBackgroundPage().languageJSON.Save);
+            resetButton.textContent = resetButton.textContent.replace("Reset", chrome.extension.getBackgroundPage().languageJSON.Reset);
+        };
     }
 
     let saveButton = document.getElementById('saveBtn');
@@ -127,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (localStorage["lang"] != null) {
-            confirmBtn.textContent = languageJSON.Save
+            confirmBtn.textContent = chrome.extension.getBackgroundPage().languageJSON.Save
         }
         else{
             confirmBtn.textContent = "Save";
@@ -135,6 +117,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         confirmBtn.addEventListener('click', function() {
             localStorage["lang"] = langSelect.value;
+
+            chrome.extension.getBackgroundPage().loadLangJSON(function(response) {
+                chrome.extension.getBackgroundPage().languageJSON = JSON.parse(response);
+
+                chrome.contextMenus.removeAll();
+                chrome.contextMenus.create({
+                    title: chrome.extension.getBackgroundPage().languageJSON.Read_selected_text,
+                    contexts: ["selection"],
+                    onclick: chrome.extension.getBackgroundPage().readTextUsingTTS
+                });
+            });
+
             window.close();
         }, false);
 

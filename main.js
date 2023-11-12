@@ -1,3 +1,5 @@
+var languageJSON;
+
 var speech = new SpeechSynthesisUtterance();
 var voices;
 
@@ -6,8 +8,21 @@ window.speechSynthesis.onvoiceschanged = function() {
     voices = window.speechSynthesis.getVoices();
 };
 
-function log(content) {
-    console.log(content)
+function loadLangJSON(callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    if(localStorage["lang"] != null){
+        xobj.open('GET', `../dictionaries/${localStorage["lang"]}.json`, true);
+    }
+    else{
+        xobj.open('GET', `../dictionaries/en.json`, true);
+    }
+    xobj.onreadystatechange = function() {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(xobj.responseText);
+        }
+    }
+    xobj.send(null);
 }
 
 readTextUsingTTS = function(word){
@@ -23,9 +38,13 @@ readTextUsingTTS = function(word){
     window.speechSynthesis.speak(speech);
 };
 
-// creates line in context menu
-chrome.contextMenus.create({
-    title: "Read selected text",
-    contexts: ["selection"],
-    onclick: readTextUsingTTS
+loadLangJSON(function(response) {
+    languageJSON = JSON.parse(response);
+
+    // creates line in context menu
+    chrome.contextMenus.create({
+        title: languageJSON.Read_selected_text,
+        contexts: ["selection"],
+        onclick: readTextUsingTTS
+    });
 });
