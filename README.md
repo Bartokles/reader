@@ -18,15 +18,15 @@ After installation, just select any text and right-click to open the context men
 
 - [X] Core tts functionality
 - [X] GUI to customize options of tts like voices, pitch or volume
-- [ ] Multi-language GUI Support
-    - [ ] English
+- [X] Multi-language GUI Support
+    - [X] English
     - [ ] Chinese
     - [ ] Spanish
     - [ ] Portuguese
     - [ ] Russian
     - [ ] German
     - [ ] French
-    - [ ] Polish
+    - [X] Polish
 
 ## License
 

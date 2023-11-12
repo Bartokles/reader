@@ -6,6 +6,10 @@ window.speechSynthesis.onvoiceschanged = function() {
     voices = window.speechSynthesis.getVoices();
 };
 
+function log(content) {
+    console.log(content)
+}
+
 readTextUsingTTS = function(word){
     let query = word.selectionText;
 

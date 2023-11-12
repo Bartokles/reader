@@ -1,0 +1,58 @@
+html{
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+div {
+    text-align: center;
+}
+
+input[type=range] {
+    text-align: center;
+}
+
+.sliderDiv {
+    padding-top: 5px;
+    text-align: center;
+    color: white;
+}
+
+#voice {
+    margin: 5px;
+}
+
+#saveBtn {
+    margin-top: 10px;
+}
+
+#langBtn {
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 28px;
+    margin-top: 10px;
+    border: 0;
+}
+
+#langBtn:hover {
+    background-color: rgb(218, 218, 218);
+    border: 1px solid black;
+}
+
+#langSelect {
+    width: 100px;
+    margin: 5px 20px 10px 20px;
+}
+
+#confirmBtn {
+    margin: 5px 20px 5px 20px;
+}
