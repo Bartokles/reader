@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "version": "1.0",
+  "version": "1.1",
 
   "name": "Reader",
-  "description": "Extention allowing to read sellected text using tts",
+  "description": "Extension adds functionality to read selected text using speech synthesizer",
 
   "permissions": [
     "contextMenus",

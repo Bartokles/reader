@@ -1,3 +1,8 @@
+html{
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,10 +14,20 @@ div {
     text-align: center;
 }
 
+.sliderDiv {
+    padding-top: 5px;
+    text-align: center;
+    color: white;
+}
+
+input[type=range] {
+    text-align: center;
+}
+
 #voice {
     margin: 5px;
 }
 
 #saveBtn {
-    margin: 5px;
+    margin-top: 10px;
 }
