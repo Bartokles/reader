@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "version": "0.1",
+
+  "name": "Czytacz",
+  "description": "Rozszerzenie służące do czytania na głos zaznaczonego tekstu",
+
+  "icons": {
+    "16": "icon-bitty.png",
+    "48": "icon-small.png",
+    "128": "icon-large.png"
+  },
+
+  "permissions": [
+    "contextMenus"
+  ],
+
+  "background": {
+    "scripts": ["main.js"]
+  }
+}
