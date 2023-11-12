@@ -12,12 +12,12 @@ and in "Extentions" section enable developer mode and then click "add packed ext
 
 ## Usage
 
-After installation, just select any text and right-click to open the context menu, then click Read.
+After installation, just select any text and right-click to open the context menu, then click "Read selected text".
 
 ## Roadmap
 
 - [X] Core tts functionality
-- [ ] GUI to customize options of tts like voices, pitch or volume
+- [X] GUI to customize options of tts like voices, pitch or volume
 - [ ] Multi-language GUI Support
     - [ ] English
     - [ ] Chinese

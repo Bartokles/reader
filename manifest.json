@@ -1,9 +1,14 @@
 {
   "manifest_version": 2,
-  "version": "0.1",
+  "version": "1.0",
 
-  "name": "Czytacz",
-  "description": "Rozszerzenie służące do czytania na głos zaznaczonego tekstu",
+  "name": "Reader",
+  "description": "Extention allowing to read sellected text using tts",
+
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
 
   "icons": {
     "16": "icon-bitty.png",
@@ -11,9 +16,9 @@
     "128": "icon-large.png"
   },
 
-  "permissions": [
-    "contextMenus"
-  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
 
   "background": {
     "scripts": ["main.js"]

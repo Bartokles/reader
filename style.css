@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+div {
+    text-align: center;
+}
+
+#voice {
+    margin: 5px;
+}
+
+#saveBtn {
+    margin: 5px;
+}

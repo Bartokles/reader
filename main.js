@@ -1,17 +1,26 @@
+var speech = new SpeechSynthesisUtterance();
+var voices;
+
+// wait on voices to be loaded before fetching list
+window.speechSynthesis.onvoiceschanged = function() {
+    voices = window.speechSynthesis.getVoices();
+};
+
+// function that reads a text
 readTextUsingTTS = function(word){
     let query = word.selectionText;
 
-    let speech = new SpeechSynthesisUtterance();
-    let voices = window.speechSynthesis.getVoices();
-
+    if(speech.voice == null){
+        speech.voice = voices[localStorage["voice"]];
+    }
     speech.text = query;
-    speech.voice = voices[1];
 
     window.speechSynthesis.speak(speech);
 };
 
+// creates line in menu that appears after right click
 chrome.contextMenus.create({
-    title: "Przeczytaj na głos",
-    contexts:["selection"],
+    title: "Read selected text",
+    contexts: ["selection"],
     onclick: readTextUsingTTS
 });
