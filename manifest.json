@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "version": "1.1",
+  "version": "1.4",
 
   "name": "Reader",
-  "description": "Extension adds functionality to read selected text using speech synthesizer",
+  "description": "A browser extension that adds the function of reading user-selected text using system tts",
 
   "permissions": [
     "contextMenus",

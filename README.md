@@ -20,13 +20,15 @@ After installation, just select any text and right-click to open the context men
 - [X] GUI to customize options of tts like voices, pitch or volume
 - [X] Multi-language GUI Support
     - [X] English
-    - [ ] Chinese
-    - [ ] Spanish
-    - [ ] Portuguese
-    - [ ] Russian
-    - [ ] German
-    - [ ] French
+    - [X] Chinese
+    - [X] Spanish
+    - [X] Portuguese
+    - [X] Russian
+    - [X] German
+    - [X] French
     - [X] Polish
+- [ ] Make extantion awaliable in web stores
+- [ ] Migrate to manifest v3
 
 ## License
 

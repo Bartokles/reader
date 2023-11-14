@@ -1,4 +1,4 @@
-var languages = ['en', 'pl']
+var languages = ['en', 'pl', 'cn', 'es', 'pt', 'ru', 'de', 'fr']
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // setting onClick listeners
     saveButton.addEventListener('click', function() {
+        // Save button
         let volumeSlider = document.getElementById("volume");
         let pitchSlider = document.getElementById("pitch");
         let rateSlider = document.getElementById("rate");
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false);
 
     resetButton.addEventListener('click', function() {
+        // Reset button
         let volumeSlider = document.getElementById("volume");
         let pitchSlider = document.getElementById("pitch");
         let rateSlider = document.getElementById("rate");
@@ -89,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, false);
 
     langButton.addEventListener('click', function() {
+        // language button
         let mainDiv = document.getElementById('mainDiv');
         mainDiv.innerHTML = "";
 
@@ -98,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         langSelect.id = "langSelect";
         confirmBtn.id = "confirmBtn";
 
-        for (let i = 0; i < voices.length; i++) {
+        for (let i = 0; i < languages.length; i++) {
             let opt = document.createElement('option');
             opt.value = languages[i];
             opt.innerHTML = languages[i];
@@ -120,13 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             chrome.extension.getBackgroundPage().loadLangJSON(function(response) {
                 chrome.extension.getBackgroundPage().languageJSON = JSON.parse(response);
-
-                chrome.contextMenus.removeAll();
-                chrome.contextMenus.create({
-                    title: chrome.extension.getBackgroundPage().languageJSON.Read_selected_text,
-                    contexts: ["selection"],
-                    onclick: chrome.extension.getBackgroundPage().readTextUsingTTS
-                });
+                chrome.runtime.reload();
             });
 
             window.close();

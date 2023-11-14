@@ -8,6 +8,10 @@ window.speechSynthesis.onvoiceschanged = function() {
     voices = window.speechSynthesis.getVoices();
 };
 
+function debug(message) {
+    console.log(message);
+}
+
 function loadLangJSON(callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
@@ -30,15 +34,35 @@ readTextUsingTTS = function(word){
 
     // setting speach parameters
     speech.voice = voices[localStorage["voice"]];
-    speech.volume = parseFloat(localStorage["volume"] / 10);
-    speech.pitch = parseFloat(localStorage["pitch"] / 10);
-    speech.rate = parseFloat(localStorage["rate"] / 10);
+    
+    if(localStorage["volume"] == undefined){
+        speech.volume = 1;
+    }
+    else{
+        speech.volume = parseFloat(localStorage["volume"] / 10);
+    }
+
+    if(localStorage["pitch"] == undefined){
+        speech.pitch = 1;
+    }
+    else{
+        speech.pitch = parseFloat(localStorage["pitch"] / 10);
+    }
+
+    if(localStorage["rate"] == undefined){
+        speech.rate = 1;
+    }
+    else{
+        speech.rate = parseFloat(localStorage["rate"] / 10);
+    }
+
     speech.text = query;
 
     window.speechSynthesis.speak(speech);
 };
 
 loadLangJSON(function(response) {
+    // loading language
     languageJSON = JSON.parse(response);
 
     // creates line in context menu
