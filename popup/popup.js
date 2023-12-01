@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let saveButton = document.getElementById('saveBtn');
     let resetButton = document.getElementById('resetBtn');
+    let githubBtn = document.getElementById('githubBtn');
     let langButton = document.getElementById('langBtn');
 
     // setting onClick listeners
@@ -88,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         volumeSlider.value = localStorage["volume"];
         pitchSlider.value = localStorage["pitch"];
         rateSlider.value = localStorage["rate"];
+    }, false);
+
+    githubBtn.addEventListener('click', function() {
+        chrome.tabs.create({ url: "https://github.com/Bartokles/reader" });
     }, false);
 
     langButton.addEventListener('click', function() {
