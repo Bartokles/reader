@@ -1,6 +1,14 @@
 # Reader
 A browser extension that adds the function of reading user-selected text using system tts
 
+## Supported Browsers
+
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+ ✔ | X | ✔ | untested | untested |
+
+Firefox will not be supported due to its approach to manifest v3 and tts functionality.
+
 ## Install
 
 Only avaliable method right now is installing it from sorce
@@ -8,11 +16,11 @@ Only avaliable method right now is installing it from sorce
 ### From source
 
 You need to download the lates realese of extention then go to your browser
-and in "Extentions" section enable developer mode and then click "add packed extantion" and choose file you downloaded.
+and in "Extentions" section enable developer mode and then click "load unpacked" and choose file you downloaded.
 
 ## Usage
 
-After installation, just select any text and right-click to open the context menu, then click "Read selected text".
+After installation, just select any text and right-click to open the context menu, then click "Read selected text". If you want to customize it, click the extension icon and use the panel in the pop-up window
 
 ## Roadmap
 
@@ -27,8 +35,10 @@ After installation, just select any text and right-click to open the context men
     - [X] German
     - [X] French
     - [X] Polish
+- [X] Migrate to manifest v3
 - [ ] Make extantion awaliable in web stores
-- [ ] Migrate to manifest v3
+    - [ ] Chrome Web Store
+    - [ ] Microsoft Edge Extensions
 
 ## License
 
