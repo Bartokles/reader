@@ -15,8 +15,8 @@ Only avaliable method right now is installing it from sorce
 
 ### From source
 
-You need to download the lates realese of extention then go to your browser
-and in "Extentions" section enable developer mode and then click "load unpacked" and choose file you downloaded.
+You need to download the lates realese of extention and unpack it. Then go to your browser
+and in "Extentions" section enable developer mode and then click "load unpacked" and choose the unpacked folder of file you downloaded.
 
 ## Usage
 
