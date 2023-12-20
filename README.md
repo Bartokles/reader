@@ -3,9 +3,9 @@ A browser extension that adds the function of reading user-selected text using s
 
 ## Supported Browsers
 
-![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Brave](https://cdn.icon-icons.com/icons2/2552/PNG/48/brave_browser_logo_icon_153013.png)
 --- | --- | --- | --- | --- |
- :heavy_check_mark: | :x: | :heavy_check_mark: | :yellow_circle:untested | :yellow_circle:untested |
+ :heavy_check_mark: | :yellow_circle:untested | :heavy_check_mark: | :x: | :yellow_circle:untested | :heavy_check_mark: | 
 
 Firefox will not be supported due to its approach to manifest v3 and tts functionality.
 
